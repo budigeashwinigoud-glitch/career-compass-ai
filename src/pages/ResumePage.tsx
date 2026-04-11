@@ -8,6 +8,7 @@ export default function ResumePage() {
   const score = getReadinessScore();
 
   const handleDownload = () => {
+    const p = profile;
     const resumeText = generateResumeText(profile);
     const blob = new Blob([resumeText], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
