@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useStudentStore } from "@/store/useStudentStore";
+import { useStudentStore, StudentProfile } from "@/store/useStudentStore";
 import { Button } from "@/components/ui/button";
 import { FileText, Download, User, Code, FolderKanban, Briefcase, Award, Globe, GraduationCap } from "lucide-react";
 
@@ -117,7 +117,7 @@ function Section({ icon: Icon, title, children }: { icon: React.ElementType; tit
   );
 }
 
-function generateResumeText(p: typeof import("@/store/useStudentStore").useStudentStore extends () => infer R ? R extends { profile: infer P } ? P : never : never) {
+function generateResumeText(p: StudentProfile) {
   let text = `${p.name}\n${p.email}\nCGPA: ${p.cgpa}/10\n\n`;
   text += `ABOUT\n${p.about}\n\n`;
   text += `SKILLS\n${p.skills.map(s => `${s.name} (${s.level}%)`).join(", ")}\n\n`;
