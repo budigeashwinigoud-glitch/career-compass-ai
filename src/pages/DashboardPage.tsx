@@ -203,6 +203,19 @@ export default function DashboardPage() {
         )}
       </motion.div>
 
+      {/* Analyze Button */}
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }} className="flex justify-center">
+        <Button
+          size="lg"
+          onClick={() => setAnalyzed(true)}
+          className="gradient-primary text-primary-foreground px-10 py-6 text-lg font-display font-black rounded-xl shadow-lg hover:scale-105 transition-transform gap-3"
+        >
+          <Sparkles className="w-6 h-6" />
+          {analyzed ? "🔄 Re-Analyze My Data" : "🚀 Analyze My Data"}
+        </Button>
+      </motion.div>
+
+      {analyzed && (<>
       {/* Metrics Breakdown */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
         {metrics.map((m, i) => (
