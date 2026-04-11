@@ -10,10 +10,10 @@ import ResumePage from "@/pages/ResumePage";
 import InternshipsPage from "@/pages/InternshipsPage";
 import LinkedProfilePage from "@/pages/LinkedProfilePage";
 import CareerGuidancePage from "@/pages/CareerGuidancePage";
-import LinkedProfilePage from "@/pages/LinkedProfilePage";
 
 const pages: Record<string, React.FC> = {
   dashboard: DashboardPage,
+  guidance: CareerGuidancePage,
   profile: ProfilePage,
   certificates: CertificatesPage,
   languages: LanguagesPage,
