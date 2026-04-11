@@ -55,6 +55,7 @@ export default function DashboardPage() {
   const [newProject, setNewProject] = useState("");
   const [newIntCompany, setNewIntCompany] = useState("");
   const [newIntRole, setNewIntRole] = useState("");
+  const [analyzed, setAnalyzed] = useState(false);
 
   const skillsAvg = profile.skills.length > 0 ? Math.round(profile.skills.reduce((a, s) => a + s.level, 0) / profile.skills.length) : 0;
   const projectsScore = Math.min(profile.projects.length * 25, 100);
