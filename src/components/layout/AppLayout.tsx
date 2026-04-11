@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  LayoutDashboard, User, Award, Globe, Sun, Brain, FileText, Briefcase, ChevronLeft, ChevronRight, Sparkles
+  LayoutDashboard, User, Award, Globe, Sun, Brain, FileText, Briefcase, ChevronLeft, ChevronRight, Sparkles, Link
 } from "lucide-react";
 
 const navItems = [
@@ -13,6 +13,7 @@ const navItems = [
   { id: "brainpower", label: "Brain Power", icon: Brain },
   { id: "resume", label: "Resume Builder", icon: FileText },
   { id: "internships", label: "Internships & Hackathons", icon: Briefcase },
+  { id: "linked", label: "Linked Profile", icon: Link },
 ];
 
 interface AppLayoutProps {
