@@ -1,16 +1,34 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import AppLayout from "@/components/layout/AppLayout";
+import DashboardPage from "@/pages/DashboardPage";
+import ProfilePage from "@/pages/ProfilePage";
+import CertificatesPage from "@/pages/CertificatesPage";
+import LanguagesPage from "@/pages/LanguagesPage";
+import MyPowerPage from "@/pages/MyPowerPage";
+import BrainPowerPage from "@/pages/BrainPowerPage";
+import ResumePage from "@/pages/ResumePage";
+import InternshipsPage from "@/pages/InternshipsPage";
+import LinkedProfilePage from "@/pages/LinkedProfilePage";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
-  return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
-    </div>
-  );
+const pages: Record<string, React.FC> = {
+  dashboard: DashboardPage,
+  profile: ProfilePage,
+  certificates: CertificatesPage,
+  languages: LanguagesPage,
+  mypower: MyPowerPage,
+  brainpower: BrainPowerPage,
+  resume: ResumePage,
+  internships: InternshipsPage,
+  linked: LinkedProfilePage,
 };
 
-const Index = PlaceholderIndex;
+export default function Index() {
+  const [activeTab, setActiveTab] = useState("dashboard");
+  const PageComponent = pages[activeTab] || DashboardPage;
 
-export default Index;
+  return (
+    <AppLayout activeTab={activeTab} onTabChange={setActiveTab}>
+      <PageComponent />
+    </AppLayout>
+  );
+}
