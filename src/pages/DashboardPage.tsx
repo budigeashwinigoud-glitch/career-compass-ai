@@ -55,6 +55,7 @@ export default function DashboardPage() {
   const [newProject, setNewProject] = useState("");
   const [newIntCompany, setNewIntCompany] = useState("");
   const [newIntRole, setNewIntRole] = useState("");
+  const [analyzed, setAnalyzed] = useState(false);
 
   const skillsAvg = profile.skills.length > 0 ? Math.round(profile.skills.reduce((a, s) => a + s.level, 0) / profile.skills.length) : 0;
   const projectsScore = Math.min(profile.projects.length * 25, 100);
@@ -202,6 +203,19 @@ export default function DashboardPage() {
         )}
       </motion.div>
 
+      {/* Analyze Button */}
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }} className="flex justify-center">
+        <Button
+          size="lg"
+          onClick={() => setAnalyzed(true)}
+          className="gradient-primary text-primary-foreground px-10 py-6 text-lg font-display font-black rounded-xl shadow-lg hover:scale-105 transition-transform gap-3"
+        >
+          <Sparkles className="w-6 h-6" />
+          {analyzed ? "🔄 Re-Analyze My Data" : "🚀 Analyze My Data"}
+        </Button>
+      </motion.div>
+
+      {analyzed && (<>
       {/* Metrics Breakdown */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
         {metrics.map((m, i) => (
@@ -324,6 +338,7 @@ export default function DashboardPage() {
           }
         </p>
       </motion.div>
+      </>)}
     </div>
   );
 }
