@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  LayoutDashboard, User, Award, Globe, Sun, Brain, FileText, Briefcase, ChevronLeft, ChevronRight, Sparkles, Link
+  LayoutDashboard, User, Award, Globe, Sun, Brain, FileText, Briefcase, ChevronLeft, ChevronRight, Sparkles, Link, Compass
 } from "lucide-react";
 
 const navItems = [
   { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
+  { id: "guidance", label: "Career Guidance", icon: Compass },
   { id: "profile", label: "My Profile", icon: User },
   { id: "certificates", label: "Certificates", icon: Award },
   { id: "languages", label: "Languages", icon: Globe },
